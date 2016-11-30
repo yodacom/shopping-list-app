@@ -1,5 +1,7 @@
 /* eslint-env jquery */
 
+$(function(){
+
 var toDos = {
   items:[]
 };
@@ -33,9 +35,7 @@ var renderToDos = function(toDos, element){
   console.log(toDos);
 };
 
-var toggleCrossout = $("button.shopping-item-toggle").click(function(event) {
-    $(event.target ).closest(".shopping-item-toggle").toggleClass( "shopping-item_checked");
-  });
+
 
 // Event listeners
 $("#js-shopping-list-form").submit(function(event){
@@ -44,7 +44,8 @@ $("#js-shopping-list-form").submit(function(event){
   renderToDos(toDos, $(".shopping-list"));
 });
 
-$(".shopping-item-toggle").click(function(event){
-  event.preventDefault();
-  toggleCrossout();
-})
+$("button.shopping-item-toggle").click(function(event) {
+    $(event.target).closest(".shopping-item-toggle").toggleClass( "shopping-item_checked");
+  });
+
+});
