@@ -50,5 +50,27 @@ $(".shopping-list").on('click', '.js-shopping-item-toggle', function (event) {
      .toggleClass("shopping-item__checked");
   })
 
+  $(".shopping-list").on('click', '.js-shopping-item-delete', function (event) {
+      var item = $(this)
+       .parent()
+       .siblings(".shopping-item").text();
+       var i = toDos.items.indexOf(item.trim());
+        if (i != -1) {
+        toDos.items.splice(i , 1);
+        renderToDos(toDos, $(".shopping-list"));
+       }
+    });
+//consider finding array and splice
+// var i = array.indexOf("b");
+// if(i != -1) {
+// 	array.splice(i, 1);
+// }
+
+// how to be applied above?;
+// var i = toDos.indexOf(this);
+// if (i != -1) {
+//   toDos.splice(i,1);
+// }
+
 
 });
